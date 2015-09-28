@@ -43,7 +43,7 @@ static char UIScrollViewParallaxView;
     }
     else
     {
-        APParallaxView *parallaxView = [[APParallaxView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width*2, height) andShadow:shadow];
+        APParallaxView *parallaxView = [[APParallaxView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, height) andShadow:shadow];
         [parallaxView setClipsToBounds:YES];
         [parallaxView.imageView setImage:image];
         
@@ -186,10 +186,11 @@ static char UIScrollViewParallaxView;
         [self setBackgroundColor:[UIColor redColor]];
         
         // default styling values
-        [self setAutoresizingMask:UIViewAutoresizingFlexibleHeight];
+        [self setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
         [self setState:APParallaxTrackingActive];
         
         self.imageView = [[UIImageView alloc] init];
+        [self.imageView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
         [self.imageView setContentMode:UIViewContentModeScaleAspectFill];
         [self.imageView setClipsToBounds:YES];
         [self addSubview:self.imageView];
